@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simple Calculator</title>
+  <style>
+    body{font-family:Segoe UI,Arial,Helvetica,sans-serif;color:#222;padding:20px;max-width:560px;margin:40px auto}
+    label{display:block;margin:8px 0}
+    input[type=number]{width:100%;padding:8px;margin-top:4px;font-size:1rem}
+    button{padding:8px 12px;margin:8px 6px 8px 0;font-size:1rem}
+    #results{margin-top:12px;font-weight:600}
+  </style>
+</head>
+<body>
+  <h1>Addition & Subtraction</h1>
+
+  <label>
+    First number
+    <input id="a" type="number" step="any" placeholder="Enter first number">
+  </label>
+
+  <label>
+    Second number
+    <input id="b" type="number" step="any" placeholder="Enter second number">
+  </label>
+
+  <div>
+    <button id="addBtn">Add</button>
+    <button id="subBtn">Subtract</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+
+  <div id="results" aria-live="polite"></div>
+
+  <script>
+    function getNums(){
+      const a = document.getElementById('a').value;
+      const b = document.getElementById('b').value;
+      return [parseFloat(a), parseFloat(b)];
+    }
+
+    document.getElementById('addBtn').addEventListener('click', ()=>{
+      const [a,b] = getNums();
+      const out = document.getElementById('results');
+      if (isNaN(a) || isNaN(b)) { out.textContent = 'Please enter two numbers.'; return; }
+      out.textContent = `${a} + ${b} = ${a + b}`;
+    });
+
+    document.getElementById('subBtn').addEventListener('click', ()=>{
+      const [a,b] = getNums();
+      const out = document.getElementById('results');
+      if (isNaN(a) || isNaN(b)) { out.textContent = 'Please enter two numbers.'; return; }
+      out.textContent = `${a} - ${b} = ${a - b}`;
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', ()=>{
+      document.getElementById('a').value = '';
+      document.getElementById('b').value = '';
+      document.getElementById('results').textContent = '';
+    });
+  </script>
+</body>
+</html>

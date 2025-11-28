@@ -1,5 +1,7 @@
-def add(a, b):
-    return a + b
+def mul(a, b):
+    return a * b
+
+
 def main():
     import sys
 
@@ -24,8 +26,8 @@ def main():
             print('Invalid input. Expecting numbers.')
             sys.exit(1)
 
-    s = add(a, b)
-    print(s)
+    result = mul(a, b)
+    print(result)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,7 @@
-def add(a, b):
-    return a + b
+def sub(a, b):
+    return a - b
+
+
 def main():
     import sys
 
@@ -18,14 +20,14 @@ def main():
             sys.exit(1)
     else:
         try:
-            a = to_number(input('Enter first number: '))
-            b = to_number(input('Enter second number: '))
+            a = to_number(input('Enter minuend: '))
+            b = to_number(input('Enter subtrahend: '))
         except Exception:
             print('Invalid input. Expecting numbers.')
             sys.exit(1)
 
-    s = add(a, b)
-    print(s)
+    result = sub(a, b)
+    print(result)
 
 
 if __name__ == '__main__':
